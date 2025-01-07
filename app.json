@@ -9,13 +9,15 @@
     "newArchEnabled": true,
     "scheme": "bizzzy",
     "ios": {
+      "bundleIdentifier": "com.orchlon.bizzzy",
       "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.orchlon.bizzzy"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -30,6 +32,11 @@
         }
       ],
       "react-native-edge-to-edge"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "fed7b16e-8cfd-4512-8780-56b234df162a"
+      }
+    }
   }
 }
