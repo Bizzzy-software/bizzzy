@@ -5,50 +5,58 @@ import {
   StaticParamList,
 } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { Image } from "react-native";
-import bell from "../assets/bell.png";
-import newspaper from "../assets/newspaper.png";
+import { Image, ImageSourcePropType } from "react-native";
+import home from "../assets/home.png";
+import activity from "../assets/activity.png";
+import message from "../assets/message.png";
+import user from "../assets/user.png";
 import { Home } from "./screens/Home";
 import { Profile } from "./screens/Profile";
 import { Settings } from "./screens/Settings";
-import { Updates } from "./screens/Updates";
 import { NotFound } from "./screens/NotFound";
-
+import { Messages } from "./screens/Messages";
+import { Activities } from "./screens/Activities";
+import { sharedStyles } from "../utils/styles";
 const HomeTabs = createBottomTabNavigator({
   screens: {
     Home: {
       screen: Home,
-      options: {
-        title: "Title",
-        tabBarIcon: ({ color, size }) => (
-          <Image
-            source={newspaper}
-            tintColor={color}
-            style={{
-              width: size,
-              height: size,
-            }}
-          />
-        ),
-      },
+      options: createTabOptions(home),
     },
-    Updates: {
-      screen: Updates,
-      options: {
-        tabBarIcon: ({ color, size }) => (
-          <Image
-            source={bell}
-            tintColor={color}
-            style={{
-              width: size,
-              height: size,
-            }}
-          />
-        ),
-      },
+    Activities: {
+      screen: Activities,
+      options: createTabOptions(activity),
+    },
+    Messages: {
+      screen: Messages,
+      options: createTabOptions(message),
+    },
+    Profile: {
+      screen: Profile,
+      options: createTabOptions(user),
     },
   },
 });
+
+// Helper function to generate tab options
+function createTabOptions(iconSource: ImageSourcePropType | undefined) {
+  return {
+    tabBarIcon: ({ color, size }: { color: string; size: number }) => (
+      <Image
+        source={iconSource}
+        tintColor={color}
+        style={{
+          width: 24,
+          height: 20,
+          resizeMode: "contain",
+        }}
+      />
+    ),
+    tabBarActiveTintColor: "#f28f55",
+    tabBarInactiveTintColor: "#8A8D9F",
+    tabBarShowLabel: false,
+  };
+}
 
 const RootStack = createNativeStackNavigator({
   screens: {
