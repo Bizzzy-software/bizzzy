@@ -2,7 +2,7 @@ import { Text } from "@react-navigation/elements";
 import { StaticScreenProps } from "@react-navigation/native";
 import { StyleSheet, View } from "react-native";
 
-export function Profile() {
+export function Messages() {
   return <View style={styles.container}></View>;
 }
 
