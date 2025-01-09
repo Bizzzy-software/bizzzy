@@ -55,6 +55,7 @@ function createTabOptions(iconSource: ImageSourcePropType | undefined) {
     tabBarActiveTintColor: "#f28f55",
     tabBarInactiveTintColor: "#8A8D9F",
     tabBarShowLabel: false,
+    headerShown: false,
   };
 }
 

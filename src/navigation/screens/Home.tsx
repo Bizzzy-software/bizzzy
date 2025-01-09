@@ -1,24 +1,49 @@
-import { Button, Text } from '@react-navigation/elements';
-import { StyleSheet, View } from 'react-native';
+import React, { useState, useEffect } from "react";
+import { Button, Text } from "@react-navigation/elements";
+import { Input } from "@rneui/base";
+import { StyleSheet, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { TextInput } from "react-native-paper";
 
 export function Home() {
+  const [guestName, setGuestName] = useState("");
+
   return (
-    <View style={styles.container}>
-      <Text>Home Screen</Text>
-      <Text>Open up 'src/App.tsx' to start working on your app!</Text>
-      <Button screen="Profile" params={{ user: 'jane' }}>
-        Go to Profile
-      </Button>
-      <Button screen="Settings">Go to Settings</Button>
-    </View>
+    <SafeAreaView edges={["top", "left", "right"]} style={styles.container}>
+      <View>
+        <Input
+          value={guestName}
+          placeholder="Search guests"
+          onChangeText={(text) => setGuestName(text)}
+          inputContainerStyle={{
+            borderBottomWidth: 0,
+            borderRadius: 10,
+            paddingHorizontal: 20,
+            backgroundColor: "white",
+          }}
+          leftIcon={
+            <TextInput.Icon
+              icon="magnify"
+              style={{
+                pointerEvents: "none",
+                marginRight: 0,
+              }}
+              color={"#A6A3B8"}
+            />
+          }
+          style={{ paddingLeft: 15 }}
+        />
+        <View></View>
+        <Text>Home Screen</Text>
+      </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     gap: 10,
+    backgroundColor: "#F9F9FF",
   },
 });
