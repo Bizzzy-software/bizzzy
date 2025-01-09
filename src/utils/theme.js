@@ -1,9 +1,9 @@
-// import { FONTS } from "./fonts";
+import { FONTS } from "./fonts";
 import { createTheme } from "@rneui/themed";
 
 export const theme = createTheme({
   lightColors: {
-    primary: "#242222",
+    primary: "#FFA26B",
     secondary: "#F0F0F0",
     primary_text: "white",
     secondary_text: "#767474",
@@ -16,7 +16,7 @@ export const theme = createTheme({
     greyOutline: "#B6B5B5",
   },
   darkColors: {
-    primary: "#ECECEC",
+    primary: "#FFA26B",
     secondary: "#242222",
     primary_text: "black",
     secondary_text: "#898989",
@@ -26,5 +26,59 @@ export const theme = createTheme({
     icon: "#ECECEC",
     tabIcon: "#B6B5B5",
     greyOutline: "#767474",
+  },
+  components: {
+    Text: {
+      style: {
+        letterSpacing: 0.5,
+        fontFamily: FONTS.M_400,
+      },
+    },
+    Chip: {
+      titleStyle: {
+        letterSpacing: 0.5,
+        fontFamily: FONTS.M_400,
+      },
+      disabledTitleStyle: {
+        letterSpacing: 0.5,
+        fontFamily: FONTS.M_400,
+      },
+    },
+    Button: {
+      titleStyle: {
+        letterSpacing: 0.5,
+        fontFamily: FONTS.M_400,
+      },
+      disabledTitleStyle: {
+        letterSpacing: 0.5,
+        fontFamily: FONTS.M_400,
+      },
+    },
+    Input: {
+      inputStyle: {
+        letterSpacing: 0.5,
+        fontFamily: FONTS.M_400,
+      },
+      labelStyle: {
+        letterSpacing: 0.5,
+        fontFamily: FONTS.M_400,
+      },
+      errorStyle: {
+        letterSpacing: 0.5,
+        fontFamily: FONTS.M_400,
+      },
+    },
+    CheckBox: {
+      textStyle: {
+        letterSpacing: 0.5,
+        fontFamily: FONTS.M_400,
+      },
+    },
+    ButtonGroup: {
+      textStyle: {
+        letterSpacing: 0.5,
+        fontFamily: FONTS.M_400,
+      },
+    },
   },
 });
