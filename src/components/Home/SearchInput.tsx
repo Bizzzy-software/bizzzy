@@ -12,7 +12,7 @@ const Header = () => {
   return (
     <Input
       value={searchBox}
-      placeholder="Search guests"
+      placeholder="Search"
       onChangeText={(text) => setSearchBox(text)}
       containerStyle={styles().container}
       inputContainerStyle={{

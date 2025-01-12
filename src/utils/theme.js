@@ -4,7 +4,7 @@ import { createTheme } from "@rneui/themed";
 export const theme = createTheme({
   lightColors: {
     primary: "#FFA26B",
-    secondary: "#F0F0F0",
+    secondary: "##A6A3B8",
     primary_text: "white",
     secondary_text: "#767474",
     background: "white",
@@ -17,7 +17,7 @@ export const theme = createTheme({
   },
   darkColors: {
     primary: "#FFA26B",
-    secondary: "#242222",
+    secondary: "##A6A3B8",
     primary_text: "black",
     secondary_text: "#898989",
     background: "#131212",
