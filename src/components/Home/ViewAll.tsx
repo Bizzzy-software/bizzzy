@@ -4,16 +4,24 @@ import {
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import { makeStyles, Text } from "@rneui/themed";
-import { View } from "react-native";
+import { TouchableOpacity, View } from "react-native";
 import { sharedTextStyles } from "../../utils/textStyles";
+import { useNavigation } from "@react-navigation/native";
 
 const ViewAll = () => {
   var textStyles: any = sharedTextStyles();
+  const navigation = useNavigation();
 
   return (
     <View style={styles().container}>
       <Text style={textStyles.blackBigBold}>What needs to be done?</Text>
-      <Text style={textStyles.secondaryMediumRegular}>View All +</Text>
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate("AllCategories");
+        }}
+      >
+        <Text style={textStyles.secondaryMediumRegular}>View All +</Text>
+      </TouchableOpacity>
     </View>
   );
 };
