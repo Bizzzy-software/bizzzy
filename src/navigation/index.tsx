@@ -17,6 +17,7 @@ import { NotFound } from "./screens/NotFound";
 import { Messages } from "./screens/Messages";
 import { Activities } from "./screens/Activities";
 import { sharedStyles } from "../utils/styles";
+import { AllCategories } from "./screens/AllCategories";
 const HomeTabs = createBottomTabNavigator({
   screens: {
     Home: {
@@ -80,6 +81,7 @@ const RootStack = createNativeStackNavigator({
         },
       },
     },
+    // Keep it, this is popup screen
     Settings: {
       screen: Settings,
       options: ({ navigation }) => ({
@@ -91,6 +93,22 @@ const RootStack = createNativeStackNavigator({
         ),
       }),
     },
+    AllCategories: {
+      screen: AllCategories,
+      options: {
+        title: "Category",
+        headerBackButtonDisplayMode: "minimal",
+        headerTintColor: "black",
+        headerTitleStyle: {
+          fontWeight: "bold",
+          fontSize: 20,
+        },
+        headerStyle: {
+          backgroundColor: "#fff",
+          borderBottomWidth: 0,
+        },
+      },
+    },
     NotFound: {
       screen: NotFound,
       options: {
@@ -101,6 +119,7 @@ const RootStack = createNativeStackNavigator({
       },
     },
   },
+  screenOptions: { headerShadowVisible: false, headerBackTitleVisible: false },
 });
 
 export const Navigation = createStaticNavigation(RootStack);

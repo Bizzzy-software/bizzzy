@@ -1,20 +1,22 @@
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from "react-native-responsive-screen";
 import { FlatList, View } from "react-native";
-import { Image, Text, makeStyles } from "@rneui/themed";
 import { categoryData } from "../../utils/categoryData";
+import { makeStyles, Image, Text } from "@rneui/themed";
 import { sharedTextStyles } from "../../utils/textStyles";
 
-const CategoryList = () => {
+export function AllCategories() {
+  const data = categoryData;
   const textStyles: any = sharedTextStyles();
   const style = styles();
-  const data = categoryData;
 
   return (
-    <View style={{ justifyContent: "center", paddingLeft: 2 }}>
+    <View style={style.container}>
       <FlatList
         data={data}
-        horizontal
         showsHorizontalScrollIndicator={false}
-        ItemSeparatorComponent={() => <View style={{ width: 5 }} />}
         renderItem={({ item }) => {
           return (
             <View style={[style.card, style.shadowProp]}>
@@ -28,12 +30,21 @@ const CategoryList = () => {
           );
         }}
         keyExtractor={(item) => item?.Category}
+        numColumns={3}
+        columnWrapperStyle={{
+          justifyContent: "space-between",
+        }}
       />
     </View>
   );
-};
+}
 
 const styles = makeStyles((theme) => ({
+  container: {
+    justifyContent: "center",
+    padding: wp(3),
+    backgroundColor: "#F9F9FF",
+  },
   card: {
     backgroundColor: "white",
     borderRadius: 8,
@@ -42,6 +53,7 @@ const styles = makeStyles((theme) => ({
     paddingVertical: 15,
     paddingHorizontal: 10,
     marginVertical: 10,
+    width: wp(28),
   },
   shadowProp: {
     shadowColor: "#171717",
@@ -51,17 +63,15 @@ const styles = makeStyles((theme) => ({
     shadowRadius: 3,
   },
   imageStyle: {
-    width: 30,
-    height: 30,
+    width: 45,
+    height: 45,
     resizeMode: "contain",
   },
   imageBg: {
-    width: 50,
-    height: 50,
+    width: 65,
+    height: 65,
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 50,
   },
 }));
-
-export default CategoryList;

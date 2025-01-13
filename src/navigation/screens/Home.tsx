@@ -7,15 +7,12 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import Header from "../../components/Home/Header";
 import { sharedTextStyles } from "../../utils/textStyles";
 import ViewAll from "../../components/Home/ViewAll";
-import { categoryData } from "../../utils/categoryData";
 import CategoryList from "../../components/Home/CategoryList";
 import { makeStyles } from "@rneui/themed";
 
 export function Home() {
   var textStyles: any = sharedTextStyles();
   const style = styles();
-  const data = categoryData;
-
   return (
     <SafeAreaView style={style.container}>
       <Header />
