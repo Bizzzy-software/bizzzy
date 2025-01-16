@@ -6,18 +6,27 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import Header from "../../components/Home/Header";
 import { sharedTextStyles } from "../../utils/textStyles";
-import ViewAll from "../../components/Home/ViewAll";
+import ViewAll from "../../components/ViewAll";
 import CategoryList from "../../components/Home/CategoryList";
 import { makeStyles } from "@rneui/themed";
+import { useNavigation } from "@react-navigation/native";
 
 export function Home() {
   var textStyles: any = sharedTextStyles();
   const style = styles();
+  const navigation = useNavigation();
+
   return (
     <SafeAreaView style={style.container}>
       <Header />
-      <ViewAll />
+      <ViewAll
+        title="What needs to be done?"
+        onPress={() => navigation.navigate("AllCategories")}
+      />
       <CategoryList />
+      <ViewAll title="Cleaning" onPress={() => console.log("Cleaning")} />
+      <ViewAll title="Electrician" onPress={() => console.log("Electrician")} />
+      <ViewAll title="Roofing" onPress={() => console.log("Roofing")} />
     </SafeAreaView>
   );
 }
