@@ -6,10 +6,10 @@ import {
 } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Image, ImageSourcePropType } from "react-native";
-import home from "../assets/home.png";
-import activity from "../assets/activity.png";
-import message from "../assets/message.png";
-import user from "../assets/user.png";
+import home from "../assets/bottom tab nav/home.png";
+import activity from "../assets/bottom tab nav/activity.png";
+import message from "../assets/bottom tab nav/message.png";
+import user from "../assets/bottom tab nav/user.png";
 import { Home } from "./screens/Home";
 import { Profile } from "./screens/Profile";
 import { Settings } from "./screens/Settings";
