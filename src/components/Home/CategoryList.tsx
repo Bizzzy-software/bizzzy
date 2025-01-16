@@ -1,3 +1,7 @@
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from "react-native-responsive-screen";
 import { FlatList, View } from "react-native";
 import { Image, Text, makeStyles } from "@rneui/themed";
 import { categoryData } from "../../utils/categoryData";
@@ -21,7 +25,9 @@ const CategoryList = () => {
               <View style={[style.imageBg, { backgroundColor: item.bgColor }]}>
                 <Image source={item?.imageUrl} style={style.imageStyle} />
               </View>
-              <Text style={[{ marginTop: 10 }, textStyles.blackMediumBold]}>
+              <Text
+                style={[{ marginVertical: 10 }, textStyles.blackMediumBold]}
+              >
                 {item?.Category}
               </Text>
             </View>
@@ -39,9 +45,8 @@ const styles = makeStyles((theme) => ({
     borderRadius: 8,
     alignItems: "center",
     justifyContent: "center",
-    paddingVertical: 15,
-    paddingHorizontal: 10,
     marginVertical: 10,
+    width: wp(23),
   },
   shadowProp: {
     shadowColor: "#171717",
@@ -51,16 +56,17 @@ const styles = makeStyles((theme) => ({
     shadowRadius: 3,
   },
   imageStyle: {
-    width: 30,
-    height: 30,
+    width: wp(8),
+    height: wp(8),
     resizeMode: "contain",
   },
   imageBg: {
-    width: 50,
-    height: 50,
+    width: wp(13),
+    height: wp(13),
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 50,
+    marginTop: 15,
   },
 }));
 
