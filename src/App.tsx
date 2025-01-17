@@ -8,10 +8,10 @@ import { theme } from "./utils/theme";
 
 Asset.loadAsync([
   ...NavigationAssets,
-  require("./assets/home.png"),
-  require("./assets/activity.png"),
-  require("./assets/message.png"),
-  require("./assets/user.png"),
+  require("./assets/bottom tab nav/home.png"),
+  require("./assets/bottom tab nav/activity.png"),
+  require("./assets/bottom tab nav/message.png"),
+  require("./assets/bottom tab nav/user.png"),
 ]);
 
 SplashScreen.preventAutoHideAsync();

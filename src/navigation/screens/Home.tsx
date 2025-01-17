@@ -10,6 +10,7 @@ import ViewAll from "../../components/ViewAll";
 import CategoryList from "../../components/Home/CategoryList";
 import { makeStyles } from "@rneui/themed";
 import { useNavigation } from "@react-navigation/native";
+import HandyCard from "../../components/HandyCard";
 
 export function Home() {
   var textStyles: any = sharedTextStyles();
@@ -25,6 +26,7 @@ export function Home() {
       />
       <CategoryList />
       <ViewAll title="Cleaning" onPress={() => console.log("Cleaning")} />
+      <HandyCard />
       <ViewAll title="Electrician" onPress={() => console.log("Electrician")} />
       <ViewAll title="Roofing" onPress={() => console.log("Roofing")} />
     </SafeAreaView>
