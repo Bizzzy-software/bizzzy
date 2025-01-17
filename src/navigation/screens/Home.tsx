@@ -19,7 +19,7 @@ export function Home() {
   const navigation = useNavigation();
 
   return (
-    <SafeAreaView style={style.container}>
+    <SafeAreaView style={style.container} edges={["top"]}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <Header />
         <ViewAll
