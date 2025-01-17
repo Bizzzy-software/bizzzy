@@ -41,6 +41,7 @@ export function AllCategories() {
 
 const styles = makeStyles((theme) => ({
   container: {
+    flex: 1,
     justifyContent: "center",
     padding: wp(3),
     backgroundColor: "#F9F9FF",
