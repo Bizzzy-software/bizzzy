@@ -5,6 +5,7 @@ import * as React from "react";
 import { Navigation } from "./navigation";
 import { ThemeProvider } from "@rneui/themed";
 import { theme } from "./utils/theme";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 Asset.loadAsync([
   ...NavigationAssets,
@@ -19,18 +20,20 @@ SplashScreen.preventAutoHideAsync();
 export function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Navigation
-        linking={{
-          enabled: "auto",
-          prefixes: [
-            // Change the scheme to match your app's scheme defined in app.json
-            "helloworld://",
-          ],
-        }}
-        onReady={() => {
-          SplashScreen.hideAsync();
-        }}
-      />
+      <GestureHandlerRootView style={{ flex: 1 }}>
+        <Navigation
+          linking={{
+            enabled: "auto",
+            prefixes: [
+              // Change the scheme to match your app's scheme defined in app.json
+              "helloworld://",
+            ],
+          }}
+          onReady={() => {
+            SplashScreen.hideAsync();
+          }}
+        />
+      </GestureHandlerRootView>
     </ThemeProvider>
   );
 }

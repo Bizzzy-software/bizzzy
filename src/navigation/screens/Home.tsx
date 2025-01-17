@@ -11,6 +11,7 @@ import CategoryList from "../../components/Home/CategoryList";
 import { makeStyles } from "@rneui/themed";
 import { useNavigation } from "@react-navigation/native";
 import HandyCard from "../../components/HandyCard";
+import { ScrollView } from "react-native-gesture-handler";
 
 export function Home() {
   var textStyles: any = sharedTextStyles();
@@ -19,16 +20,23 @@ export function Home() {
 
   return (
     <SafeAreaView style={style.container}>
-      <Header />
-      <ViewAll
-        title="What needs to be done?"
-        onPress={() => navigation.navigate("AllCategories")}
-      />
-      <CategoryList />
-      <ViewAll title="Cleaning" onPress={() => console.log("Cleaning")} />
-      <HandyCard />
-      <ViewAll title="Electrician" onPress={() => console.log("Electrician")} />
-      <ViewAll title="Roofing" onPress={() => console.log("Roofing")} />
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <Header />
+        <ViewAll
+          title="What needs to be done?"
+          onPress={() => navigation.navigate("AllCategories")}
+        />
+        <CategoryList />
+        <ViewAll title="Cleaning" onPress={() => console.log("Cleaning")} />
+        <HandyCard />
+        <ViewAll
+          title="Electrician"
+          onPress={() => console.log("Electrician")}
+        />
+        <HandyCard />
+        <ViewAll title="Roofing" onPress={() => console.log("Roofing")} />
+        <HandyCard />
+      </ScrollView>
     </SafeAreaView>
   );
 }
