@@ -2,21 +2,18 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
-import { FlatList, TouchableOpacity, View } from "react-native";
+import { TouchableOpacity, View } from "react-native";
+import { makeStyles, Image, Text } from "@rneui/themed";
 import { sharedStyles } from "../utils/styles";
-import { Image } from "@rneui/themed";
 import heartIcon from "../assets/heart.png";
 import starIcon from "../assets/star.png";
 import mockImage from "../assets/mock_image.jpg";
-import { makeStyles, Text } from "@rneui/themed";
 import { sharedTextStyles } from "../utils/textStyles";
-import { categoryData } from "../utils/categoryData";
 
-const HandyCard = () => {
+export function HandyCard() {
   var shared: any = sharedStyles();
-  const style = styles();
+
   const textStyles: any = sharedTextStyles();
-  const data = categoryData;
 
   const textInfo = () => {
     return (
@@ -45,27 +42,14 @@ const HandyCard = () => {
       </View>
     );
   };
-
+  const style = styles();
   return (
-    <View>
-      <FlatList
-        data={data}
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        ItemSeparatorComponent={() => <View style={{ width: 5 }} />}
-        renderItem={({ item }) => {
-          return (
-            <View style={[style.card, style.shadowProp]}>
-              {textInfo()}
-              {handyImage()}
-            </View>
-          );
-        }}
-        keyExtractor={(item) => item?.Category}
-      />
+    <View style={[style.card, style.shadowProp]}>
+      {textInfo()}
+      {handyImage()}
     </View>
   );
-};
+}
 
 const styles = makeStyles((theme) => ({
   card: {
@@ -120,5 +104,3 @@ const styles = makeStyles((theme) => ({
     marginTop: wp(10),
   },
 }));
-
-export default HandyCard;

@@ -2,15 +2,17 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
-import { FlatList, View } from "react-native";
+import { FlatList, View, TouchableOpacity } from "react-native";
 import { Image, Text, makeStyles } from "@rneui/themed";
 import { categoryData } from "../../utils/categoryData";
 import { sharedTextStyles } from "../../utils/textStyles";
+import { useNavigation } from "@react-navigation/native";
 
 const CategoryList = () => {
   const textStyles: any = sharedTextStyles();
   const style = styles();
   const data = categoryData;
+  const navigation = useNavigation();
 
   return (
     <View style={{ justifyContent: "center", paddingLeft: 2 }}>
@@ -21,16 +23,20 @@ const CategoryList = () => {
         ItemSeparatorComponent={() => <View style={{ width: 5 }} />}
         renderItem={({ item }) => {
           return (
-            <View style={[style.card, style.shadowProp]}>
-              <View style={[style.imageBg, { backgroundColor: item.bgColor }]}>
-                <Image source={item?.imageUrl} style={style.imageStyle} />
+            <TouchableOpacity onPress={() => navigation.navigate("HandyList")}>
+              <View style={[style.card, style.shadowProp]}>
+                <View
+                  style={[style.imageBg, { backgroundColor: item.bgColor }]}
+                >
+                  <Image source={item?.imageUrl} style={style.imageStyle} />
+                </View>
+                <Text
+                  style={[{ marginVertical: 10 }, textStyles.blackMediumBold]}
+                >
+                  {item?.Category}
+                </Text>
               </View>
-              <Text
-                style={[{ marginVertical: 10 }, textStyles.blackMediumBold]}
-              >
-                {item?.Category}
-              </Text>
-            </View>
+            </TouchableOpacity>
           );
         }}
         keyExtractor={(item) => item?.Category}
