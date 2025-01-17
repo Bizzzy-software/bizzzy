@@ -18,6 +18,7 @@ import { Messages } from "./screens/Messages";
 import { Activities } from "./screens/Activities";
 import { sharedStyles } from "../utils/styles";
 import { AllCategories } from "./screens/AllCategories";
+import { HandyList } from "./screens/HandyList";
 const HomeTabs = createBottomTabNavigator({
   screens: {
     Home: {
@@ -97,6 +98,22 @@ const RootStack = createNativeStackNavigator({
       screen: AllCategories,
       options: {
         title: "Category",
+        headerBackButtonDisplayMode: "minimal",
+        headerTintColor: "black",
+        headerTitleStyle: {
+          fontWeight: "bold",
+          fontSize: 20,
+        },
+        headerStyle: {
+          backgroundColor: "#fff",
+          borderBottomWidth: 0,
+        },
+      },
+    },
+    HandyList: {
+      screen: HandyList,
+      options: {
+        title: "Roofing",
         headerBackButtonDisplayMode: "minimal",
         headerTintColor: "black",
         headerTitleStyle: {

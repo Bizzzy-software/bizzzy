@@ -10,7 +10,7 @@ import ViewAll from "../../components/ViewAll";
 import CategoryList from "../../components/Home/CategoryList";
 import { makeStyles } from "@rneui/themed";
 import { useNavigation } from "@react-navigation/native";
-import HandyCard from "../../components/HandyCard";
+import HandyCard from "../../components/Home/HandyCardList";
 import { ScrollView } from "react-native-gesture-handler";
 
 export function Home() {
@@ -45,7 +45,7 @@ const styles = makeStyles((theme) => ({
   container: {
     flex: 1,
     width: wp(100),
-    backgroundColor: "#F9F9FF",
+    backgroundColor: theme.colors.background,
     paddingHorizontal: wp(3),
   },
 }));

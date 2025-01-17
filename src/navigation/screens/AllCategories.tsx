@@ -2,15 +2,17 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
-import { FlatList, View } from "react-native";
+import { FlatList, TouchableOpacity, View } from "react-native";
 import { categoryData } from "../../utils/categoryData";
 import { makeStyles, Image, Text } from "@rneui/themed";
 import { sharedTextStyles } from "../../utils/textStyles";
+import { useNavigation } from "@react-navigation/native";
 
 export function AllCategories() {
   const data = categoryData;
   const textStyles: any = sharedTextStyles();
   const style = styles();
+  const navigation = useNavigation();
 
   return (
     <View style={style.container}>
@@ -19,14 +21,18 @@ export function AllCategories() {
         showsHorizontalScrollIndicator={false}
         renderItem={({ item }) => {
           return (
-            <View style={[style.card, style.shadowProp]}>
-              <View style={[style.imageBg, { backgroundColor: item.bgColor }]}>
-                <Image source={item?.imageUrl} style={style.imageStyle} />
+            <TouchableOpacity onPress={() => navigation.navigate("HandyList")}>
+              <View style={[style.card, style.shadowProp]}>
+                <View
+                  style={[style.imageBg, { backgroundColor: item.bgColor }]}
+                >
+                  <Image source={item?.imageUrl} style={style.imageStyle} />
+                </View>
+                <Text style={[{ marginTop: 10 }, textStyles.blackMediumBold]}>
+                  {item?.Category}
+                </Text>
               </View>
-              <Text style={[{ marginTop: 10 }, textStyles.blackMediumBold]}>
-                {item?.Category}
-              </Text>
-            </View>
+            </TouchableOpacity>
           );
         }}
         keyExtractor={(item) => item?.Category}
