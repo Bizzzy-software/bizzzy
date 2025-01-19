@@ -10,9 +10,9 @@ import starIcon from "../assets/star.png";
 import mockImage from "../assets/mock_image.jpg";
 import { sharedTextStyles } from "../utils/textStyles";
 
-export function HandyCard() {
+export function HandyCard({ data }: { data: any }) {
   var shared: any = sharedStyles();
-
+  const style = styles();
   const textStyles: any = sharedTextStyles();
 
   const textInfo = () => {
@@ -22,7 +22,14 @@ export function HandyCard() {
           <Image source={heartIcon} style={style.imgStyle} />
         </TouchableOpacity>
         <View style={{ flexDirection: "row", alignItems: "center" }}>
-          <Text>4.9</Text>
+          <Text
+            style={[
+              textStyles.blackSmallLight,
+              { fontSize: 11, marginRight: 3 },
+            ]}
+          >
+            {data?.rate}
+          </Text>
           <Image source={starIcon} style={style.imgStyle} />
         </View>
       </View>
@@ -36,13 +43,19 @@ export function HandyCard() {
           <Image source={mockImage} style={style.cardImage} />
         </View>
         <View style={style.nameAndRate}>
-          <Text style={textStyles.whiteMediumRegular}>John Smith</Text>
-          <Text style={textStyles.whiteSmallRegular}>$20.00/hr</Text>
+          <Text
+            style={[textStyles.whiteMediumRegular, { paddingHorizontal: 5 }]}
+            numberOfLines={1}
+            ellipsizeMode="tail"
+          >
+            {data?.name}
+          </Text>
+          <Text style={textStyles.whiteSmallRegular}>{data?.hourlyRate}</Text>
         </View>
       </View>
     );
   };
-  const style = styles();
+
   return (
     <View style={[style.card, style.shadowProp]}>
       {textInfo()}
@@ -70,7 +83,7 @@ const styles = makeStyles((theme) => ({
     justifyContent: "space-between",
     alignItems: "center",
     marginHorizontal: 10,
-    marginTop: 5,
+    marginVertical: 5,
   },
   imgStyle: {
     width: wp(3),

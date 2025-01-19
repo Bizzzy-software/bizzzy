@@ -6,14 +6,14 @@ import { FlatList, View } from "react-native";
 import { sharedStyles } from "../../utils/styles";
 import { makeStyles } from "@rneui/themed";
 import { sharedTextStyles } from "../../utils/textStyles";
-import { categoryData } from "../../utils/categoryData";
+import { handymanData } from "../../utils/categoryData";
 import { HandyCard } from "../HandyCard";
 
 const HandyCardList = () => {
   var shared: any = sharedStyles();
   const style = styles();
   const textStyles: any = sharedTextStyles();
-  const data = categoryData;
+  const data = handymanData;
 
   return (
     <View>
@@ -23,9 +23,9 @@ const HandyCardList = () => {
         showsHorizontalScrollIndicator={false}
         ItemSeparatorComponent={() => <View style={{ width: 5 }} />}
         renderItem={({ item }) => {
-          return <HandyCard />;
+          return <HandyCard data={item} />;
         }}
-        keyExtractor={(item) => item?.Category}
+        keyExtractor={(item) => item?.name}
       />
     </View>
   );

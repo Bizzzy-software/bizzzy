@@ -4,6 +4,7 @@ import fittings from "../assets/categories/fittings.png";
 import painting from "../assets/categories/painting.png";
 import roofing from "../assets/categories/roofing.png";
 import plumbing from "../assets/categories/plumbing.png";
+import mockImage from "../assets/mock_image.jpg";
 
 export const categoryData = [
   {
@@ -38,4 +39,47 @@ export const categoryData = [
   },
 ];
 
-export const handymanData = [];
+export const handymanData = [
+  {
+    name: "John Doe",
+    imageUrl: mockImage,
+    hourlyRate: "$20.00/hr",
+    rate: "4.9",
+  },
+  {
+    name: "Oscar Ch",
+    imageUrl: mockImage,
+    hourlyRate: "$15.00/hr",
+    rate: "3.9",
+  },
+  {
+    name: "Michael Jordan",
+    imageUrl: mockImage,
+    hourlyRate: "$30.00/hr",
+    rate: "5",
+  },
+  {
+    name: "Michelle Obama",
+    imageUrl: mockImage,
+    hourlyRate: "$1000.00/hr",
+    rate: "5",
+  },
+  {
+    name: "Steph Curry",
+    imageUrl: mockImage,
+    hourlyRate: "$200.00/hr",
+    rate: "4.9",
+  },
+  {
+    name: "Lebron James",
+    imageUrl: mockImage,
+    hourlyRate: "$130.00/hr",
+    rate: "1.3",
+  },
+  {
+    name: "June B",
+    imageUrl: mockImage,
+    hourlyRate: "$9.00/hr",
+    rate: "2.4",
+  },
+];

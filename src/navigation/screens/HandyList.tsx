@@ -5,11 +5,11 @@ import {
 import { FlatList, View } from "react-native";
 import { makeStyles } from "@rneui/themed";
 import { HandyCard } from "../../components/HandyCard";
-import { categoryData } from "../../utils/categoryData";
+import { handymanData } from "../../utils/categoryData";
 
 export function HandyList() {
   const style = styles();
-  const data = categoryData;
+  const data = handymanData;
 
   return (
     <View style={style.container}>
@@ -22,9 +22,9 @@ export function HandyList() {
         }}
         ItemSeparatorComponent={() => <View style={{ width: 5 }} />}
         renderItem={({ item }) => {
-          return <HandyCard />;
+          return <HandyCard data={item} />;
         }}
-        keyExtractor={(item) => item?.Category}
+        keyExtractor={(item) => item?.name}
       />
     </View>
   );
