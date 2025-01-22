@@ -9,11 +9,13 @@ import heartIcon from "../assets/heart.png";
 import starIcon from "../assets/star.png";
 import mockImage from "../assets/mock_image.jpg";
 import { sharedTextStyles } from "../utils/textStyles";
+import { useNavigation } from "@react-navigation/native";
 
 export function HandyCard({ data }: { data: any }) {
   var shared: any = sharedStyles();
   const style = styles();
   const textStyles: any = sharedTextStyles();
+  const navigation = useNavigation();
 
   const textInfo = () => {
     return (
@@ -57,10 +59,13 @@ export function HandyCard({ data }: { data: any }) {
   };
 
   return (
-    <View style={[style.card, style.shadowProp]}>
+    <TouchableOpacity
+      onPress={() => navigation.navigate("HandyUserProfile")}
+      style={[style.card, style.shadowProp]}
+    >
       {textInfo()}
       {handyImage()}
-    </View>
+    </TouchableOpacity>
   );
 }
 
