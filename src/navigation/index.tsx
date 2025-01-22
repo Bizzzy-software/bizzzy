@@ -16,9 +16,10 @@ import { Settings } from "./screens/Settings";
 import { NotFound } from "./screens/NotFound";
 import { Messages } from "./screens/Messages";
 import { Activities } from "./screens/Activities";
-import { sharedStyles } from "../utils/styles";
 import { AllCategories } from "./screens/AllCategories";
 import { HandyList } from "./screens/HandyList";
+import { HandyUserProfile } from "./screens/HandyUserProfile";
+
 const HomeTabs = createBottomTabNavigator({
   screens: {
     Home: {
@@ -114,6 +115,22 @@ const RootStack = createNativeStackNavigator({
       screen: HandyList,
       options: {
         title: "Roofing",
+        headerBackButtonDisplayMode: "minimal",
+        headerTintColor: "black",
+        headerTitleStyle: {
+          fontWeight: "bold",
+          fontSize: 20,
+        },
+        headerStyle: {
+          backgroundColor: "#fff",
+          borderBottomWidth: 0,
+        },
+      },
+    },
+    HandyUserProfile: {
+      screen: HandyUserProfile,
+      options: {
+        title: "John Doe",
         headerBackButtonDisplayMode: "minimal",
         headerTintColor: "black",
         headerTitleStyle: {
