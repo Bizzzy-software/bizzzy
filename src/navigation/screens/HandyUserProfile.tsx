@@ -8,6 +8,7 @@ import { makeStyles } from "@rneui/themed";
 import { View } from "react-native";
 import { sharedStyles } from "../../utils/styles";
 import { HandyBulletin } from "../../components/HandyProfile/HandyBulletin";
+import { HandyHighlight } from "../../components/HandyProfile/HandyHighlight";
 
 export function HandyUserProfile() {
   var textStyles: any = sharedTextStyles();
@@ -17,6 +18,7 @@ export function HandyUserProfile() {
   return (
     <View style={style.container}>
       <HandyBulletin />
+      <HandyHighlight />
     </View>
   );
 }
