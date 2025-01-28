@@ -9,6 +9,7 @@ import { View } from "react-native";
 import { sharedStyles } from "../../utils/styles";
 import { HandyBulletin } from "../../components/HandyProfile/HandyBulletin";
 import { HandyHighlight } from "../../components/HandyProfile/HandyHighlight";
+import PrimaryButton from "../../components/PrimaryButton";
 
 export function HandyUserProfile() {
   var textStyles: any = sharedTextStyles();
@@ -19,6 +20,10 @@ export function HandyUserProfile() {
     <View style={style.container}>
       <HandyBulletin />
       <HandyHighlight />
+      <View style={style.buttonContainer}>
+        <PrimaryButton buttonTitle="Request" />
+        <PrimaryButton buttonTitle="Message" />
+      </View>
     </View>
   );
 }
@@ -34,5 +39,13 @@ const styles = makeStyles((theme) => ({
     width: wp(25),
     height: wp(25),
     borderRadius: 200,
+  },
+  buttonContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    width: "100%",
+    gap: 10,
+    paddingHorizontal: wp(2),
+    marginVertical: hp(1),
   },
 }));
