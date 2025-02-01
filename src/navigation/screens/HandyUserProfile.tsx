@@ -18,11 +18,13 @@ export function HandyUserProfile() {
 
   return (
     <View style={style.container}>
-      <HandyBulletin />
-      <HandyHighlight />
-      <View style={style.buttonContainer}>
-        <PrimaryButton buttonTitle="Request" />
-        <PrimaryButton buttonTitle="Message" />
+      <View style={style.metricsContainer}>
+        <HandyBulletin />
+        <HandyHighlight />
+        <View style={style.buttonContainer}>
+          <PrimaryButton buttonTitle="Request" />
+          <PrimaryButton buttonTitle="Message" />
+        </View>
       </View>
     </View>
   );
@@ -32,8 +34,8 @@ const styles = makeStyles((theme) => ({
   container: {
     flex: 1,
     width: wp(100),
-    backgroundColor: theme.colors.white,
-    paddingHorizontal: wp(3),
+    backgroundColor: theme.colors.background,
+    // paddingHorizontal: wp(3),
   },
   cardImage: {
     width: wp(25),
@@ -47,5 +49,12 @@ const styles = makeStyles((theme) => ({
     gap: 10,
     paddingHorizontal: wp(2),
     marginVertical: hp(1),
+  },
+  metricsContainer: {
+    backgroundColor: theme.colors.white,
+    paddingBottom: hp(1),
+    paddingHorizontal: wp(2),
+    borderBottomLeftRadius: 15,
+    borderBottomRightRadius: 15,
   },
 }));
