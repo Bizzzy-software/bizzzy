@@ -10,6 +10,7 @@ import { sharedStyles } from "../../utils/styles";
 import { HandyBulletin } from "../../components/HandyProfile/HandyBulletin";
 import { HandyHighlight } from "../../components/HandyProfile/HandyHighlight";
 import PrimaryButton from "../../components/PrimaryButton";
+import { HandyExperience } from "../../components/HandyProfile/HandyExperience";
 
 export function HandyUserProfile() {
   var textStyles: any = sharedTextStyles();
@@ -26,6 +27,7 @@ export function HandyUserProfile() {
           <PrimaryButton buttonTitle="Message" />
         </View>
       </View>
+      <HandyExperience />
     </View>
   );
 }
