@@ -24,9 +24,16 @@ export function HandyFeedback() {
         <View style={style.imageAndName}>
           <View style={style.nameAndDate}>
             <Image source={mockImage} style={style.cardImage} />
-            <View>
-              <Text>Alexa</Text>
-              <Text>01-06-2021</Text>
+            <View style={{ gap: 3 }}>
+              <Text style={textStyles.blackMediumBold}>Alexa</Text>
+              <Text
+                style={[
+                  textStyles.blackSmallRegular,
+                  { color: shared.secondary.color },
+                ]}
+              >
+                01-06-2021
+              </Text>
             </View>
           </View>
           <Rating
@@ -61,7 +68,7 @@ export function HandyFeedback() {
       <FlatList
         data={data.slice(0, 2)}
         showsHorizontalScrollIndicator={false}
-        ItemSeparatorComponent={() => <View style={{ height: 15 }} />}
+        ItemSeparatorComponent={() => <View style={{ height: hp(3) }} />}
         renderItem={({ item }) => {
           return photoAndRate();
         }}
