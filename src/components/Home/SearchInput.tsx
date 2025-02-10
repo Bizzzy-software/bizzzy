@@ -6,9 +6,12 @@ import {
 import { Input } from "@rneui/base";
 import { TextInput } from "react-native-paper";
 import { makeStyles } from "@rneui/themed";
+import { sharedStyles } from "../../utils/styles";
 
 const Header = () => {
   const [searchBox, setSearchBox] = useState("");
+  const shared: any = sharedStyles();
+
   return (
     <Input
       value={searchBox}
@@ -25,7 +28,7 @@ const Header = () => {
             pointerEvents: "none",
             marginLeft: 15,
           }}
-          color={"#A6A3B8"}
+          color={shared.secondary.color}
         />
       }
       style={{

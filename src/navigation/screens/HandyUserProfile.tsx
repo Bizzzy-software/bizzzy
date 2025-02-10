@@ -11,6 +11,9 @@ import { HandyBulletin } from "../../components/HandyProfile/HandyBulletin";
 import { HandyHighlight } from "../../components/HandyProfile/HandyHighlight";
 import PrimaryButton from "../../components/PrimaryButton";
 import { HandyExperience } from "../../components/HandyProfile/HandyExperience";
+import { HandyFeedback } from "../../components/HandyProfile/HandyFeedback";
+import { ScrollView } from "react-native-gesture-handler";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export function HandyUserProfile() {
   var textStyles: any = sharedTextStyles();
@@ -18,17 +21,20 @@ export function HandyUserProfile() {
   const shared: any = sharedStyles();
 
   return (
-    <View style={style.container}>
-      <View style={style.metricsContainer}>
-        <HandyBulletin />
-        <HandyHighlight />
-        <View style={style.buttonContainer}>
-          <PrimaryButton buttonTitle="Request" />
-          <PrimaryButton buttonTitle="Message" />
+    <ScrollView style={style.container}>
+      <SafeAreaView edges={["bottom"]}>
+        <View style={style.metricsContainer}>
+          <HandyBulletin />
+          <HandyHighlight />
+          <View style={style.buttonContainer}>
+            <PrimaryButton buttonTitle="Request" />
+            <PrimaryButton buttonTitle="Message" />
+          </View>
         </View>
-      </View>
-      <HandyExperience />
-    </View>
+        <HandyExperience />
+        <HandyFeedback />
+      </SafeAreaView>
+    </ScrollView>
   );
 }
 
@@ -37,7 +43,6 @@ const styles = makeStyles((theme) => ({
     flex: 1,
     width: wp(100),
     backgroundColor: theme.colors.background,
-    // paddingHorizontal: wp(3),
   },
   cardImage: {
     width: wp(25),

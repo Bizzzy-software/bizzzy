@@ -7,21 +7,35 @@ import { makeStyles, Text } from "@rneui/themed";
 import { TouchableOpacity, View } from "react-native";
 import { sharedTextStyles } from "../utils/textStyles";
 import { useNavigation } from "@react-navigation/native";
+import { sharedStyles } from "../utils/styles";
 
 type ViewAllProps = {
   title: string;
+  textStyle?: any;
   onPress: () => void;
 };
 
-const ViewAll: React.FC<ViewAllProps> = ({ title, onPress }) => {
+const ViewAll: React.FC<ViewAllProps> = ({
+  title,
+  onPress,
+  textStyle = sharedTextStyles().blackBigBold,
+}) => {
   var textStyles: any = sharedTextStyles();
   const navigation = useNavigation();
+  const shared = sharedStyles();
 
   return (
     <View style={styles().container}>
-      <Text style={textStyles.blackBigBold}>{title}</Text>
+      <Text style={textStyle}>{title}</Text>
       <TouchableOpacity onPress={onPress}>
-        <Text style={textStyles.secondaryMediumRegular}>View All +</Text>
+        <Text
+          style={[
+            textStyles.secondaryMediumRegular,
+            { color: shared.secondary.color },
+          ]}
+        >
+          View All +
+        </Text>
       </TouchableOpacity>
     </View>
   );
