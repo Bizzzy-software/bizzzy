@@ -7,7 +7,17 @@ import { sharedStyles } from "../utils/styles";
 import { sharedTextStyles } from "../utils/textStyles";
 import { View } from "react-native";
 
-const PrimaryButton = ({ buttonTitle }: { buttonTitle: string }) => {
+const PrimaryButton = ({
+  buttonTitle,
+  buttonStyle,
+  titleStyle,
+  onPress,
+}: {
+  buttonTitle: string;
+  buttonStyle?: any;
+  titleStyle?: any;
+  onPress?: () => void;
+}) => {
   const style = styles();
   var shared: any = sharedStyles();
   var textStyles: any = sharedTextStyles();
@@ -16,10 +26,13 @@ const PrimaryButton = ({ buttonTitle }: { buttonTitle: string }) => {
     <View style={{ flex: 1 }}>
       <Button
         title={buttonTitle}
-        buttonStyle={style.buttonStyle}
-        titleStyle={[textStyles.whiteMediumRegular, { fontSize: 18 }]}
+        buttonStyle={buttonStyle || style.buttonStyle}
+        titleStyle={[
+          titleStyle || textStyles.whiteMediumRegular,
+          { fontSize: 16 },
+        ]}
         containerStyle={{}}
-        onPress={() => console.log("aye")}
+        onPress={onPress}
       />
     </View>
   );

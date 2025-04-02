@@ -22,13 +22,26 @@ import { HandyUserProfile } from "./screens/HandyUserProfile";
 
 const HomeTabs = createBottomTabNavigator({
   screens: {
+    Activities: {
+      screen: Activities,
+      options: {
+        ...createTabOptions(activity),
+        headerShown: true,
+        title: "My Activity",
+        headerTitleStyle: {
+          fontWeight: "bold",
+          fontSize: 20,
+        },
+        headerStyle: {
+          backgroundColor: "#fff",
+          borderBottomWidth: 0,
+        },
+        headerShadowVisible: false,
+      },
+    },
     Home: {
       screen: Home,
       options: createTabOptions(home),
-    },
-    Activities: {
-      screen: Activities,
-      options: createTabOptions(activity),
     },
     Messages: {
       screen: Messages,

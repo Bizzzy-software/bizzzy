@@ -1,16 +1,30 @@
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from "react-native-responsive-screen";
 import { Text } from "@react-navigation/elements";
 import { StaticScreenProps } from "@react-navigation/native";
 import { StyleSheet, View } from "react-native";
+import { makeStyles } from "@rneui/themed";
+import { ScrollView } from "react-native-gesture-handler";
+import PrimaryButton from "../../components/PrimaryButton";
+import { ChipButtons } from "../../components/Activities/ChipButtons";
 
 export function Activities() {
-  return <View style={styles.container}></View>;
+  const style = styles();
+
+  return (
+    <ScrollView style={style.container}>
+      <ChipButtons />
+    </ScrollView>
+  );
 }
 
-const styles = StyleSheet.create({
+const styles = makeStyles((theme) => ({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    gap: 10,
+    width: wp(100),
+    backgroundColor: theme.colors.background,
+    padding: wp(5),
   },
-});
+}));
