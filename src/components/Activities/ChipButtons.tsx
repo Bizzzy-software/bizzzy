@@ -19,7 +19,7 @@ export function ChipButtons() {
   return (
     <View style={style.container}>
       <PrimaryButton
-        buttonTitle="Request"
+        buttonTitle="All"
         onPress={() => setIndex(0)}
         buttonStyle={index != 0 ? style.nonActiveButton : undefined}
         titleStyle={
