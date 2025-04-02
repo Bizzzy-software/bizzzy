@@ -19,6 +19,7 @@ export const theme = createTheme({
     primary: "#FFA26B",
     secondary: "##A6A3B8",
     primary_text: "black",
+    black: "#131212",
     secondary_text: "#898989",
     background: "#F9F9FF",
     success: "#19BC33",
