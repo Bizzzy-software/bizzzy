@@ -44,6 +44,12 @@ export const sharedTextStyles = makeStyles((theme) => ({
     fontWeight: 500,
     color: theme.colors.black,
   },
+  blackMediumSemiBold: {
+    fontSize: 14,
+    letterSpacing: 0.1,
+    fontWeight: 600,
+    color: theme.colors.black,
+  },
   blackMediumBold: {
     fontSize: 14,
     letterSpacing: 0.1,

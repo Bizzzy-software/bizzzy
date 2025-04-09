@@ -4,18 +4,11 @@ import {
 } from "react-native-responsive-screen";
 import { makeStyles } from "@rneui/themed";
 import { ScrollView } from "react-native-gesture-handler";
-import { ChipButtons } from "../../components/Activities/ChipButtons";
-import { ActivityCard } from "../../components/Activities/ActivityCard";
 
-export function Activities() {
+export function AddJob() {
   const style = styles();
 
-  return (
-    <ScrollView style={style.container}>
-      <ChipButtons />
-      <ActivityCard />
-    </ScrollView>
-  );
+  return <ScrollView style={style.container}></ScrollView>;
 }
 
 const styles = makeStyles((theme) => ({
