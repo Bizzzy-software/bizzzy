@@ -24,6 +24,10 @@ import { AddJob } from "./screens/AddJob";
 
 const HomeTabs = createBottomTabNavigator({
   screens: {
+    Home: {
+      screen: Home,
+      options: createTabOptions(home),
+    },
     Activities: {
       screen: Activities,
       options: {
@@ -40,10 +44,6 @@ const HomeTabs = createBottomTabNavigator({
         },
         headerShadowVisible: false,
       },
-    },
-    Home: {
-      screen: Home,
-      options: createTabOptions(home),
     },
     AddJob: {
       screen: AddJob,
