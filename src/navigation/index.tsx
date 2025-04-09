@@ -10,6 +10,7 @@ import home from "../assets/bottom tab nav/home.png";
 import activity from "../assets/bottom tab nav/activity.png";
 import message from "../assets/bottom tab nav/message.png";
 import user from "../assets/bottom tab nav/user.png";
+import add from "../assets/bottom tab nav/add.png";
 import { Home } from "./screens/Home";
 import { Profile } from "./screens/Profile";
 import { Settings } from "./screens/Settings";
@@ -19,6 +20,7 @@ import { Activities } from "./screens/Activities";
 import { AllCategories } from "./screens/AllCategories";
 import { HandyList } from "./screens/HandyList";
 import { HandyUserProfile } from "./screens/HandyUserProfile";
+import { AddJob } from "./screens/AddJob";
 
 const HomeTabs = createBottomTabNavigator({
   screens: {
@@ -43,6 +45,10 @@ const HomeTabs = createBottomTabNavigator({
       screen: Home,
       options: createTabOptions(home),
     },
+    AddJob: {
+      screen: AddJob,
+      options: createTabOptions(add, 26, 26),
+    },
     Messages: {
       screen: Messages,
       options: createTabOptions(message),
@@ -55,15 +61,19 @@ const HomeTabs = createBottomTabNavigator({
 });
 
 // Helper function to generate tab options
-function createTabOptions(iconSource: ImageSourcePropType | undefined) {
+function createTabOptions(
+  iconSource: ImageSourcePropType | undefined,
+  width: number = 24,
+  height: number = 20
+) {
   return {
     tabBarIcon: ({ color, size }: { color: string; size: number }) => (
       <Image
         source={iconSource}
         tintColor={color}
         style={{
-          width: 24,
-          height: 20,
+          width: width,
+          height: height,
           resizeMode: "contain",
         }}
       />

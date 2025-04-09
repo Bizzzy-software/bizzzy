@@ -11,6 +11,7 @@ Asset.loadAsync([
   ...NavigationAssets,
   require("./assets/bottom tab nav/home.png"),
   require("./assets/bottom tab nav/activity.png"),
+  require("./assets/bottom tab nav/activity.png"),
   require("./assets/bottom tab nav/message.png"),
   require("./assets/bottom tab nav/user.png"),
 ]);
