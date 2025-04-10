@@ -5,14 +5,16 @@ import {
 import { makeStyles, Text, Icon } from "@rneui/themed";
 import { View, ViewStyle } from "react-native";
 import { sharedStyles } from "../../utils/styles";
+import { useState } from "react";
 
 export function BookJob() {
   const style = styles();
   const shared = sharedStyles();
+  const [index, setIndex] = useState(0);
 
   const outerCircle = (isTrue: boolean): ViewStyle => ({
-    height: 35,
-    width: 35,
+    height: wp(8),
+    width: wp(8),
     borderRadius: 40,
     justifyContent: "center",
     alignItems: "center",
@@ -20,29 +22,48 @@ export function BookJob() {
   });
 
   const innerCircle = (isTrue: boolean): ViewStyle => ({
-    height: 23,
-    width: 23,
+    height: wp(5.5),
+    width: wp(5.5),
     borderRadius: 25,
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: isTrue ? shared.primary.color : shared.white.color,
   });
 
-  const checkMark = (isActivePage: boolean) => {
+  const leftLine = (isActiveColor: boolean): ViewStyle => ({
+    position: "absolute",
+    top: hp(2),
+    right: wp(18),
+    width: wp(23),
+    height: 2,
+    backgroundColor: isActiveColor ? shared.primary.color : shared.grey5.color,
+  });
+
+  const checkMark = (
+    hasLeftLine: boolean,
+    isActiveColor: boolean,
+    text: string
+  ) => {
     return (
-      <View style={{ alignItems: "center" }}>
-        <View style={outerCircle(isActivePage)}>
-          <View style={innerCircle(isActivePage)}>
+      <View
+        style={{
+          alignItems: "center",
+          width: wp(30),
+        }}
+      >
+        {hasLeftLine ? <View style={leftLine(isActiveColor)} /> : null}
+        <View style={outerCircle(isActiveColor)}>
+          <View style={innerCircle(isActiveColor)}>
             <Icon
               name="check"
               type="font-awesome-5"
               color={shared.white.color}
-              size={15}
+              size={13}
               solid
             />
           </View>
         </View>
-        <Text>Date & Time</Text>
+        <Text>{text}</Text>
       </View>
     );
   };
@@ -50,10 +71,10 @@ export function BookJob() {
   return (
     <View style={style.container}>
       <View>
-        <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
-          {checkMark(true)}
-          {checkMark(true)}
-          {checkMark(false)}
+        <View style={{ flexDirection: "row" }}>
+          {checkMark(false, true, "Date & Time")}
+          {checkMark(true, false, "Job Detail")}
+          {checkMark(true, false, "Finalize")}
         </View>
       </View>
     </View>
