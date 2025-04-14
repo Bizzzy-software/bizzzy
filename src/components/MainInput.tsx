@@ -14,6 +14,7 @@ export function MainInput({ title }: { title: string }) {
       containerStyle={style.containerStyle}
       inputContainerStyle={style.inputContainerStyle}
       inputStyle={style.inputStyle}
+      errorStyle={{ height: 0 }}
     />
   );
 }
@@ -22,7 +23,7 @@ const styles = makeStyles((theme) => ({
   inputContainerStyle: {
     borderBottomWidth: 0,
     backgroundColor: "#F5F6F8",
-    borderRadius: 50,
+    borderRadius: 25,
     paddingHorizontal: 20,
     paddingVertical: 5,
   },
