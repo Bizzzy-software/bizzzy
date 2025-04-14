@@ -6,10 +6,12 @@ import React from "react";
 import { Icon, makeStyles, Text } from "@rneui/themed";
 import { TextStyle, View, ViewStyle } from "react-native";
 import { sharedStyles } from "../../utils/styles";
+import { sharedTextStyles } from "../../utils/textStyles";
 
 export function PageMark() {
   const style = styles();
   const shared: any = sharedStyles();
+  const textStyles = sharedTextStyles();
 
   const outerCircle = (isTrue: boolean): ViewStyle => ({
     height: wp(8),
@@ -67,7 +69,9 @@ export function PageMark() {
             />
           </View>
         </View>
-        <Text style={textStyle(isActiveMark)}>{text}</Text>
+        <Text style={[textStyles.blackMediumRegular, textStyle(isActiveMark)]}>
+          {text}
+        </Text>
       </View>
     );
   };

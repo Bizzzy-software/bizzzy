@@ -20,10 +20,27 @@ import { Activities } from "./screens/Activities";
 import { AllCategories } from "./screens/AllCategories";
 import { HandyList } from "./screens/HandyList";
 import { HandyUserProfile } from "./screens/HandyUserProfile";
-import { AddJob } from "./screens/AddJob";
+import { BookJob } from "./screens/BookJob";
 
 const HomeTabs = createBottomTabNavigator({
   screens: {
+    BookJob: {
+      screen: BookJob,
+      options: {
+        ...createTabOptions(add),
+        headerShown: true,
+        title: "Booking",
+        headerTitleStyle: {
+          fontWeight: "bold",
+          fontSize: 20,
+        },
+        headerStyle: {
+          backgroundColor: "#fff",
+          borderBottomWidth: 0,
+        },
+        headerShadowVisible: false,
+      },
+    },
     Home: {
       screen: Home,
       options: createTabOptions(home),
@@ -45,10 +62,7 @@ const HomeTabs = createBottomTabNavigator({
         headerShadowVisible: false,
       },
     },
-    AddJob: {
-      screen: AddJob,
-      options: createTabOptions(add, 26, 26),
-    },
+
     Messages: {
       screen: Messages,
       options: createTabOptions(message),
