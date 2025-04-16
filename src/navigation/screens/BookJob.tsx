@@ -22,11 +22,16 @@ export function BookJob() {
   return (
     <ScrollView style={style.container}>
       <View style={style.bookingCard}>
-        <PageMark />
+        <PageMark index={index} />
         {index == 0 ? <DateAndTime /> : null}
         {index == 1 ? <JobDetails /> : null}
         <View style={style.buttonContainer}>
-          <PrimaryButton buttonTitle="Continue" />
+          <PrimaryButton
+            buttonTitle="Continue"
+            onPress={() => {
+              setIndex(index + 1);
+            }}
+          />
         </View>
       </View>
     </ScrollView>
