@@ -167,7 +167,7 @@ const styles = makeStyles((theme) => ({
   container: {
     margin: wp(2),
     backgroundColor: theme.colors.white,
-    padding: wp(4),
+    padding: wp(5),
     borderRadius: 15,
     gap: 10,
   },

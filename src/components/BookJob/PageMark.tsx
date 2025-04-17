@@ -9,7 +9,6 @@ import { sharedStyles } from "../../utils/styles";
 import { sharedTextStyles } from "../../utils/textStyles";
 
 export function PageMark(index: { index: number }) {
-  console.log(index);
   const style = styles();
   const shared: any = sharedStyles();
   const textStyles = sharedTextStyles();

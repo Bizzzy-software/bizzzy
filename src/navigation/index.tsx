@@ -24,23 +24,6 @@ import { BookJob } from "./screens/BookJob";
 
 const HomeTabs = createBottomTabNavigator({
   screens: {
-    BookJob: {
-      screen: BookJob,
-      options: {
-        ...createTabOptions(add),
-        headerShown: true,
-        title: "Booking",
-        headerTitleStyle: {
-          fontWeight: "bold",
-          fontSize: 20,
-        },
-        headerStyle: {
-          backgroundColor: "#fff",
-          borderBottomWidth: 0,
-        },
-        headerShadowVisible: false,
-      },
-    },
     Home: {
       screen: Home,
       options: createTabOptions(home),
@@ -62,7 +45,23 @@ const HomeTabs = createBottomTabNavigator({
         headerShadowVisible: false,
       },
     },
-
+    BookJob: {
+      screen: BookJob,
+      options: {
+        ...createTabOptions(add),
+        headerShown: true,
+        title: "Booking",
+        headerTitleStyle: {
+          fontWeight: "bold",
+          fontSize: 20,
+        },
+        headerStyle: {
+          backgroundColor: "#fff",
+          borderBottomWidth: 0,
+        },
+        headerShadowVisible: false,
+      },
+    },
     Messages: {
       screen: Messages,
       options: createTabOptions(message),
@@ -107,6 +106,12 @@ const RootStack = createNativeStackNavigator({
         title: "Home",
         headerShown: false,
       },
+    },
+    Home: {
+      screen: Home,
+    },
+    BookJob: {
+      screen: BookJob,
     },
     Profile: {
       screen: Profile,
