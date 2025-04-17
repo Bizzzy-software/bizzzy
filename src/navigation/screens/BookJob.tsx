@@ -4,20 +4,20 @@ import {
 } from "react-native-responsive-screen";
 import { makeStyles } from "@rneui/themed";
 import { View } from "react-native";
-import { sharedStyles } from "../../utils/styles";
 import { useState } from "react";
-import { sharedTextStyles } from "../../utils/textStyles";
 import PrimaryButton from "../../components/PrimaryButton";
 import { ScrollView } from "react-native-gesture-handler";
 import { JobDetails } from "../../components/BookJob/JobDetails";
 import { PageMark } from "../../components/BookJob/PageMark";
 import { DateAndTime } from "../../components/BookJob/DateAndTime";
+import { FinalizeBooking } from "../../components/BookJob/FinalizeBooking";
+import { useNavigation } from "@react-navigation/native";
 
 export function BookJob() {
   const style = styles();
-  const shared = sharedStyles();
-  const textStyles = sharedTextStyles();
+
   const [index, setIndex] = useState(0);
+  const navigation = useNavigation();
 
   return (
     <ScrollView style={style.container}>
@@ -25,11 +25,17 @@ export function BookJob() {
         <PageMark index={index} />
         {index == 0 ? <DateAndTime /> : null}
         {index == 1 ? <JobDetails /> : null}
+        {index == 2 ? <FinalizeBooking /> : null}
         <View style={style.buttonContainer}>
           <PrimaryButton
-            buttonTitle="Continue"
+            buttonTitle={index === 2 ? "Submit" : "Continue"}
             onPress={() => {
-              setIndex(index + 1);
+              if (index == 2) {
+                navigation.navigate("Home");
+                setIndex(0);
+              } else {
+                setIndex(index + 1);
+              }
             }}
           />
         </View>
