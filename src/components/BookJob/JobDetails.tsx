@@ -8,7 +8,6 @@ import { View } from "react-native";
 import { sharedStyles } from "../../utils/styles";
 import { sharedTextStyles } from "../../utils/textStyles";
 import { MainInput } from "../MainInput";
-import { PageMark } from "./PageMark";
 
 export function JobDetails() {
   var textStyles: any = sharedTextStyles();

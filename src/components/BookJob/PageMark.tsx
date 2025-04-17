@@ -8,7 +8,7 @@ import { TextStyle, View, ViewStyle } from "react-native";
 import { sharedStyles } from "../../utils/styles";
 import { sharedTextStyles } from "../../utils/textStyles";
 
-export function PageMark() {
+export function PageMark(index: { index: number }) {
   const style = styles();
   const shared: any = sharedStyles();
   const textStyles = sharedTextStyles();
@@ -79,8 +79,8 @@ export function PageMark() {
   return (
     <View style={{ flexDirection: "row" }}>
       {pageStep(false, true, "Date & Time")}
-      {pageStep(true, false, "Job Detail")}
-      {pageStep(true, false, "Finalize")}
+      {pageStep(true, index.index >= 1 ? true : false, "Job Detail")}
+      {pageStep(true, index.index >= 2 ? true : false, "Finalize")}
     </View>
   );
 }

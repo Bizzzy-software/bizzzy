@@ -16,8 +16,8 @@ export function DateAndTime() {
 
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
-  const [endTime, setEndTime] = useState(new Date());
-  const [startTime, setStartTime] = useState(new Date());
+  const [endTime, setEndTime] = useState(null);
+  const [startTime, setStartTime] = useState(null);
 
   const [openStartDate, setOpenStartDate] = useState(false);
   const [openEndDate, setOpenEndDate] = useState(false);
@@ -34,18 +34,47 @@ export function DateAndTime() {
     return (
       <Button
         buttonStyle={style.button}
-        titleStyle={[textStyles.blackMediumLight, { textAlign: "left" }]}
+        titleStyle={[textStyles.blackMediumLight, { textAlign: "right" }]}
         titleProps={{ numberOfLines: 2 }}
         title={
           (startDate
             ? (startDate as Date).toLocaleDateString("en-US", options)
-            : "Start") +
+            : "Start date") +
           " - " +
           (endDate
             ? (endDate as Date).toLocaleDateString("en-US", options)
-            : "End")
+            : "End date")
         }
         onPress={() => setOpenStartDate(true)}
+      />
+    );
+  };
+
+  const TimeButton = () => {
+    return (
+      <Button
+        buttonStyle={style.button}
+        titleStyle={[textStyles.blackMediumLight, { textAlign: "center" }]}
+        titleProps={{ numberOfLines: 2 }}
+        title={
+          (!startTime
+            ? "Start time"
+            : startTime.toLocaleTimeString([], {
+                hour: "2-digit",
+                minute: "2-digit",
+                hour12: true,
+              })) +
+          " - " +
+          `${startTime ? "\n" : ""}` +
+          (!endTime
+            ? "End time"
+            : endTime.toLocaleTimeString([], {
+                hour: "2-digit",
+                minute: "2-digit",
+                hour12: true,
+              }))
+        }
+        onPress={() => setOpenStartTime(true)}
       />
     );
   };
@@ -53,6 +82,8 @@ export function DateAndTime() {
   const DateSelector = () => {
     return (
       <>
+        <Text>Pickup Date</Text>
+        <DateButton />
         <DatePicker
           modal
           mode="date"
@@ -86,11 +117,48 @@ export function DateAndTime() {
     );
   };
 
+  const TimeSelector = () => {
+    return (
+      <>
+        <Text>Pickup Time</Text>
+        <TimeButton />
+        <DatePicker
+          modal
+          mode="time"
+          title="Start time"
+          open={openStartTime}
+          date={startTime || new Date()}
+          onConfirm={(time) => {
+            setOpenStartTime(false);
+            setStartTime(time);
+            setOpenEndTime(true);
+          }}
+          onCancel={() => {
+            setOpenStartDate(false);
+          }}
+        />
+        <DatePicker
+          modal
+          title="End time"
+          open={openEndTime}
+          date={endTime || new Date()}
+          mode="time"
+          onConfirm={(time) => {
+            setOpenEndTime(false);
+            setEndTime(time);
+          }}
+          onCancel={() => {
+            setOpenEndTime(false);
+          }}
+        />
+      </>
+    );
+  };
+
   return (
     <View style={style.container}>
-      <Text>Pickup Date</Text>
-      <DateButton />
       <DateSelector />
+      <TimeSelector />
     </View>
   );
 }
@@ -99,7 +167,7 @@ const styles = makeStyles((theme) => ({
   container: {
     margin: wp(2),
     backgroundColor: theme.colors.white,
-    padding: wp(4),
+    padding: wp(5),
     borderRadius: 15,
     gap: 10,
   },
