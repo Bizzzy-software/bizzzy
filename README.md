@@ -5,4 +5,3 @@
 
 # Mobile app TODO
 
-1.
