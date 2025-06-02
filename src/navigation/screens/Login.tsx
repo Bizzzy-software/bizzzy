@@ -7,10 +7,15 @@ import { StyleSheet, View } from "react-native";
 import TextInput from "../../components/TextInput";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { makeStyles } from "@rneui/themed";
-import FilledButton from "../../components/FilledButton";
 import Seperator from "../../components/Seperator";
+import PrimaryButton from "../../components/PrimaryButton";
+import SocialButtons from "../../components/Login/SocialButtons";
+import { TouchableOpacity } from "react-native-gesture-handler";
+import { sharedTextStyles } from "../../utils/textStyles";
 
 export function Login() {
+  const textStyle = sharedTextStyles();
+
   return (
     <SafeAreaView style={styles().container}>
       <Text>Get started by creating your account.</Text>
@@ -18,9 +23,20 @@ export function Login() {
         <TextInput placeholderText="Email" />
         <TextInput placeholderText="Choose password" />
         <TextInput placeholderText="Confirm password" />
+        <View style={styles().primaryButtonContainer}>
+          <PrimaryButton buttonTitle={"Sign up"} onPress={() => {}} />
+        </View>
       </View>
-      <FilledButton title="Sign Up" />
       <Seperator />
+      <SocialButtons />
+      <View style={{ marginTop: 15, alignItems: "center" }}>
+        <Text style={textStyle.blackMediumLight}>Don’t have an account?</Text>
+        <TouchableOpacity onPress={() => {}}>
+          <Text style={[textStyle.primaryMediumLight, { marginTop: 3 }]}>
+            Create One
+          </Text>
+        </TouchableOpacity>
+      </View>
     </SafeAreaView>
   );
 }
@@ -32,6 +48,11 @@ const styles = makeStyles((theme) => ({
     paddingHorizontal: wp(15),
   },
   inputContainer: {
+    width: "100%",
     gap: 10,
+  },
+  primaryButtonContainer: {
+    width: "100%",
+    height: 45,
   },
 }));
