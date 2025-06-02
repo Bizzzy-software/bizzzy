@@ -171,11 +171,6 @@ const styles = makeStyles((theme) => ({
     borderRadius: 15,
     gap: 10,
   },
-  seeMoreButton: {
-    color: "blue",
-    marginTop: 5,
-    alignSelf: "flex-end",
-  },
 
   button: {
     paddingVertical: 8,

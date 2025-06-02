@@ -13,7 +13,7 @@ export const theme = createTheme({
     black: "#131212",
     icon: "#494949",
     tabIcon: "#797979",
-    greyOutline: "#8A8D9F",
+    greyOutline: "#6F7976",
   },
   darkColors: {
     primary: "#FFA26B",
@@ -26,7 +26,7 @@ export const theme = createTheme({
     error: "#DC143C",
     icon: "#ECECEC",
     tabIcon: "#B6B5B5",
-    greyOutline: "#8A8D9F",
+    greyOutline: "#6F7976",
   },
   components: {
     Text: {
