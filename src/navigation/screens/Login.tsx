@@ -13,9 +13,11 @@ import SocialButtons from "../../components/Login/SocialButtons";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { sharedTextStyles } from "../../utils/textStyles";
 import Footer from "../../components/Login/Footer";
+import { useNavigation } from "@react-navigation/native";
 
 export function Login() {
   const textStyle = sharedTextStyles();
+  const navigation = useNavigation();
 
   return (
     <SafeAreaView style={styles().container}>
@@ -25,7 +27,12 @@ export function Login() {
         <TextInput placeholderText="Choose password" />
         <TextInput placeholderText="Confirm password" />
         <View style={styles().primaryButtonContainer}>
-          <PrimaryButton buttonTitle={"Sign up"} onPress={() => {}} />
+          <PrimaryButton
+            buttonTitle={"Sign up"}
+            onPress={() => {
+              navigation.navigate("HomeTabs");
+            }}
+          />
         </View>
       </View>
       <Seperator />
