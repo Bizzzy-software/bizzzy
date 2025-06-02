@@ -3,15 +3,22 @@ import {
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import { Input, makeStyles } from "@rneui/themed";
+import React, { useState } from "react";
 
 const TextInput = ({ placeholderText }: { placeholderText: string }) => {
+  const [value, setValue] = useState("");
+
   return (
     <Input
       placeholder={placeholderText}
+      value={value}
+      onChangeText={setValue}
       containerStyle={styles().container}
       inputContainerStyle={styles().inputContainer}
       inputStyle={styles().input}
       placeholderTextColor="#6F7976"
+      label={null}
+      disableFullscreenUI={true}
     />
   );
 };
@@ -27,7 +34,7 @@ const styles = makeStyles((theme) => ({
   input: {
     color: "#6F7976",
     fontWeight: "300",
-    paddingLeft: 10,
+    paddingHorizontal: 10,
     margin: 0,
     fontSize: 16,
   },

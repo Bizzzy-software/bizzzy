@@ -12,6 +12,7 @@ import PrimaryButton from "../../components/PrimaryButton";
 import SocialButtons from "../../components/Login/SocialButtons";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { sharedTextStyles } from "../../utils/textStyles";
+import Footer from "../../components/Login/Footer";
 
 export function Login() {
   const textStyle = sharedTextStyles();
@@ -29,14 +30,7 @@ export function Login() {
       </View>
       <Seperator />
       <SocialButtons />
-      <View style={{ marginTop: 15, alignItems: "center" }}>
-        <Text style={textStyle.blackMediumLight}>Don’t have an account?</Text>
-        <TouchableOpacity onPress={() => {}}>
-          <Text style={[textStyle.primaryMediumLight, { marginTop: 3 }]}>
-            Create One
-          </Text>
-        </TouchableOpacity>
-      </View>
+      <Footer />
     </SafeAreaView>
   );
 }
