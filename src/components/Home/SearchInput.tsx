@@ -8,7 +8,7 @@ import { TextInput } from "react-native-paper";
 import { makeStyles } from "@rneui/themed";
 import { sharedStyles } from "../../utils/styles";
 
-const Header = () => {
+const SearchInput = () => {
   const [searchBox, setSearchBox] = useState("");
   const shared: any = sharedStyles();
 
@@ -47,4 +47,4 @@ const styles = makeStyles((theme) => ({
   },
 }));
 
-export default Header;
+export default SearchInput;
