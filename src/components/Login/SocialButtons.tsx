@@ -61,7 +61,8 @@ const styles = makeStyles((theme) => ({
     justifyContent: "flex-start",
     width: "100%",
     height: 45,
-    marginBottom: 5,
+    paddingHorizontal: wp(15),
+    marginBottom: 10,
   },
   buttonStyle: {
     borderRadius: 20,

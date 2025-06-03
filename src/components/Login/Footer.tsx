@@ -24,7 +24,7 @@ export default function Footer() {
 
 const styles = makeStyles((theme) => ({
   footerContainer: {
-    marginTop: 15,
+    marginTop: 25,
     alignItems: "center",
   },
 }));

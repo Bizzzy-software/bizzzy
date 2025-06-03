@@ -1,3 +1,7 @@
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from "react-native-responsive-screen";
 import React from "react";
 import { makeStyles, Text } from "@rneui/themed";
 import { View } from "react-native";
@@ -30,6 +34,7 @@ const styles = makeStyles((theme) => ({
     flexDirection: "row",
     alignItems: "center",
     marginVertical: 15,
+    paddingHorizontal: wp(15),
   },
   line: {
     flex: 1,
