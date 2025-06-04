@@ -8,14 +8,22 @@ import { View } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { sharedTextStyles } from "../../utils/textStyles";
 
-export default function Footer() {
+export default function Footer({
+  textButtonTitle,
+  text,
+  onPress,
+}: {
+  textButtonTitle: string;
+  text: string;
+  onPress?: () => void;
+}) {
   const textStyle = sharedTextStyles();
   return (
     <View style={styles().footerContainer}>
-      <Text style={textStyle.blackMediumLight}>Don’t have an account?</Text>
-      <TouchableOpacity onPress={() => {}}>
+      <Text style={textStyle.blackMediumLight}>{text}</Text>
+      <TouchableOpacity onPress={onPress}>
         <Text style={[textStyle.primaryMediumLight, { marginTop: 3 }]}>
-          Create One
+          {textButtonTitle}
         </Text>
       </TouchableOpacity>
     </View>

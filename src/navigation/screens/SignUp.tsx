@@ -14,49 +14,41 @@ import { useNavigation } from "@react-navigation/native";
 import bizzyLogo from "../../assets/Bizzzy-logo.png";
 import SocialButtons from "../../components/Auth/SocialButtons";
 import Footer from "../../components/Auth/Footer";
-import { TouchableOpacity } from "react-native-gesture-handler";
 
-export function Login() {
+export function SignUp() {
   const textStyle = sharedTextStyles();
   const navigation = useNavigation();
-
-  const TextButton = () => (
-    <TouchableOpacity onPress={() => {}}>
-      <Text
-        style={[textStyle.primaryBigLight, { marginTop: 10, fontSize: 16 }]}
-      >
-        Forgot Password
-      </Text>
-    </TouchableOpacity>
-  );
 
   return (
     <SafeAreaView style={styles().container}>
       <Image source={bizzyLogo} style={styles().cardImage} />
+      <Text style={[textStyle.blackBigLight, { marginVertical: 20 }]}>
+        Get started by creating your account.
+      </Text>
       <View style={styles().inputContainer}>
         <TextInput placeholderText="Email" />
-        <TextInput placeholderText="Password" />
+        <TextInput placeholderText="Choose password" />
+        <TextInput placeholderText="Confirm password" />
         <View style={styles().primaryButtonContainer}>
           <PrimaryButton
-            buttonTitle={"Login"}
+            buttonTitle={"Sign up"}
             onPress={() => {
               navigation.navigate("HomeTabs");
             }}
           />
         </View>
       </View>
-      <TextButton />
       <Seperator />
       <SocialButtons
-        googleTitle="Continue with Google"
-        facebookTitle="Continue with Facebook"
-        appleTitle="Continue with Apple"
+        googleTitle="Sign up with Google"
+        facebookTitle="Sign up with Facebook"
+        appleTitle="Sign up with Apple"
       />
       <Footer
-        text="Don't have an account?"
-        textButtonTitle="Create One"
+        text="Already have an account?"
+        textButtonTitle="Login"
         onPress={() => {
-          navigation.navigate("SignUp");
+          navigation.navigate("Login");
         }}
       />
     </SafeAreaView>

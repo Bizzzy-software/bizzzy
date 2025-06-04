@@ -7,7 +7,15 @@ import { makeStyles, Icon } from "@rneui/themed";
 import { View } from "react-native";
 import PrimaryButton from "../PrimaryButton";
 
-export default function SocialButtons() {
+export default function SocialButtons({
+  googleTitle,
+  facebookTitle,
+  appleTitle,
+}: {
+  googleTitle: string;
+  facebookTitle: string;
+  appleTitle: string;
+}) {
   const sharedIcon = ({
     iconName,
     color,
@@ -27,7 +35,7 @@ export default function SocialButtons() {
     <>
       <View style={styles().buttonContainer}>
         <PrimaryButton
-          buttonTitle="Sign up with Google"
+          buttonTitle={googleTitle}
           onPress={() => {}}
           titleStyle={styles().titleStyle}
           buttonStyle={styles().buttonStyle}
@@ -36,7 +44,7 @@ export default function SocialButtons() {
       </View>
       <View style={styles().buttonContainer}>
         <PrimaryButton
-          buttonTitle="Sign up with Facebook"
+          buttonTitle={facebookTitle}
           onPress={() => {}}
           titleStyle={styles().titleStyle}
           buttonStyle={styles().buttonStyle}
@@ -45,7 +53,7 @@ export default function SocialButtons() {
       </View>
       <View style={styles().buttonContainer}>
         <PrimaryButton
-          buttonTitle="Sign up with Apple"
+          buttonTitle={appleTitle}
           onPress={() => {}}
           titleStyle={styles().titleStyle}
           buttonStyle={styles().buttonStyle}
@@ -78,6 +86,6 @@ const styles = makeStyles((theme) => ({
   },
   titleStyle: {
     color: theme.colors.primary,
-    fontWeight: 600,
+    fontWeight: 500,
   },
 }));

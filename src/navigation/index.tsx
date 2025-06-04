@@ -21,6 +21,7 @@ import { AllCategories } from "./screens/AllCategories";
 import { HandyList } from "./screens/HandyList";
 import { HandyUserProfile } from "./screens/HandyUserProfile";
 import { BookJob } from "./screens/BookJob";
+import { SignUp } from "./screens/SignUp";
 import { Login } from "./screens/Login";
 
 const HomeTabs = createBottomTabNavigator({
@@ -103,6 +104,12 @@ const RootStack = createNativeStackNavigator({
   screens: {
     Login: {
       screen: Login,
+      options: {
+        headerShown: false,
+      },
+    },
+    SignUp: {
+      screen: SignUp,
       options: {
         headerShown: false,
       },
