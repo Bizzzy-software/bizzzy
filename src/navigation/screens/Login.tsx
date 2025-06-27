@@ -82,5 +82,6 @@ const styles = makeStyles((theme) => ({
     height: wp(35),
     borderRadius: 200,
     marginTop: 10,
+    marginBottom: hp(3),
   },
 }));

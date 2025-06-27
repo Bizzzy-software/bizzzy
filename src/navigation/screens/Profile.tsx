@@ -3,7 +3,11 @@ import { StaticScreenProps } from "@react-navigation/native";
 import { StyleSheet, View } from "react-native";
 
 export function Profile() {
-  return <View style={styles.container}></View>;
+  return (
+    <View style={styles.container}>
+      <Text>Feature Coming Soon!</Text>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
