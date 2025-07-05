@@ -6,7 +6,7 @@ import Notification from "./Notification";
 const Header = () => {
   return (
     <View style={styles.container}>
-      <SearchInput />
+      <SearchInput title="Search" />
       <Filter />
       <Notification />
     </View>

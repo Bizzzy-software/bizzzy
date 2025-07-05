@@ -8,16 +8,33 @@ import { TextInput } from "react-native-paper";
 import { makeStyles } from "@rneui/themed";
 import { sharedStyles } from "../../utils/styles";
 
-const SearchInput = () => {
-  const [searchBox, setSearchBox] = useState("");
+const SearchInput = ({
+  width = wp(70),
+  title,
+  value,
+  onChangeText,
+}: {
+  width?: number;
+  title: string;
+  value?: string;
+  onChangeText?: (text: string) => void;
+}) => {
+  const [searchBox, setSearchBox] = useState(value || "");
   const shared: any = sharedStyles();
+
+  const handleChangeText = (text: string) => {
+    setSearchBox(text);
+    if (onChangeText) {
+      onChangeText(text);
+    }
+  };
 
   return (
     <Input
-      value={searchBox}
-      placeholder="Search"
-      onChangeText={(text) => setSearchBox(text)}
-      containerStyle={styles().container}
+      value={value !== undefined ? value : searchBox}
+      placeholder={title}
+      onChangeText={handleChangeText}
+      containerStyle={[styles().container, { width: width }]}
       inputContainerStyle={{
         borderBottomWidth: 0,
       }}
@@ -42,7 +59,6 @@ const styles = makeStyles((theme) => ({
   container: {
     backgroundColor: theme.colors.white,
     borderRadius: 15,
-    width: wp(70),
     height: 45,
   },
 }));

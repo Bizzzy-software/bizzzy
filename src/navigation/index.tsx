@@ -66,7 +66,20 @@ const HomeTabs = createBottomTabNavigator({
     },
     Messages: {
       screen: Messages,
-      options: createTabOptions(message),
+      options: {
+        ...createTabOptions(message),
+        headerShown: true,
+        title: "Messages",
+        headerTitleStyle: {
+          fontWeight: "bold",
+          fontSize: 20,
+        },
+        headerStyle: {
+          backgroundColor: "#fff",
+          borderBottomWidth: 0,
+        },
+        headerShadowVisible: false,
+      },
     },
     Profile: {
       screen: Profile,
@@ -102,18 +115,18 @@ function createTabOptions(
 
 const RootStack = createNativeStackNavigator({
   screens: {
-    Login: {
-      screen: Login,
-      options: {
-        headerShown: false,
-      },
-    },
-    SignUp: {
-      screen: SignUp,
-      options: {
-        headerShown: false,
-      },
-    },
+    // Login: {
+    //   screen: Login,
+    //   options: {
+    //     headerShown: false,
+    //   },
+    // },
+    // SignUp: {
+    //   screen: SignUp,
+    //   options: {
+    //     headerShown: false,
+    //   },
+    // },
     HomeTabs: {
       screen: HomeTabs,
       options: {
