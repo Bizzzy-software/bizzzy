@@ -15,6 +15,12 @@ Then run the following command to install packages.
   npm install
 ```
 
+#### Create a build for an IOS simulator.
+Then run the following command to create the build.
+```bash
+  npx expo run:ios
+```
+
 #### Now run the project on your machine.
 ```bash
   npm run start
